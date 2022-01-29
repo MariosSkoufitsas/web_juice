@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>JUICE LAB</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo11.png">
+
+    <link rel="stylesheet" href="css/grayscale.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+  </head>
+  <body>
+
+
+    <div class="welcome-section content-hidden">
+      <div class="content-wrap">
+        <ul class="fly-in-text">
+          <li>J</li>
+          <li>U</li>
+          <li>I</li>
+          <li>C</li>
+          <li>E</li>
+          <br>
+          <li>L</li>
+          <li>A</li>
+          <li>B</li>
+
+        <a href="page/index.html" id="btn" class="enter-button">Καλώς ήλθατε</a>
+      </div>
+
+    </div>
+    <script type="text/javascript">
+      $(function(){
+        var welcomeSection = $('.welcome-section'),
+        enterButton = welcomeSection.find('.enter-button');
+
+        setTimeout(function(){
+          welcomeSection.removeClass('content-hidden');
+        },80);
+        setInterval(function(){ 
+   $("#btn").click();
+},2000);
+
+      });
+      
+      var button=document.getElementById('btn');
+      setInterval(function(){
+        button.click()
+      },5000)
+
+    </script>
+
+  </body>
+</html>
