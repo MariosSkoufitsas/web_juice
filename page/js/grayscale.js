@@ -69,3 +69,20 @@ $("#mainNav").addClass("navbar-shrink");
 
 
   }
+  
+  var label1=0;
+  function add1() {
+	  if(label1<20){
+		  label1=label1+1
+	  }
+	  
+	  document.getElementById("swhowlabel1").innerHTML = label1;
+  }
+  
+  function pre1(){
+	  if(label1>0){
+		  label1=label1-1;
+	  }
+	  
+	  document.getElementById("swhowlabel1").innerHTML = label1;
+  }
