@@ -86,3 +86,73 @@ $("#mainNav").addClass("navbar-shrink");
 	  
 	  document.getElementById("swhowlabel1").innerHTML = label1;
   }
+  
+  
+  function kalthi(){
+	  document.getElementById("user_send").style.display = "block";
+      document.getElementById("menou_juice").style.display = "none";
+  }
+  
+  firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    var user = firebase.auth().currentUser;
+    var email_id = user.email;
+
+
+    if(email_id=="mariosskoufi@gmail.com"){
+      document.getElementById("user_div").style.display = "none";
+      document.getElementById("login_div").style.display = "none";
+      document.getElementById("master_user").style.display = "block";
+      document.getElementById("register_user").style.display = "none";
+      FetchaAllDataAllll();
+
+
+    }
+    else {
+      document.getElementById("user_div").style.display = "block";
+      document.getElementById("login_div").style.display = "none";
+      document.getElementById("master_user").style.display = "none";
+      document.getElementById("register_user").style.display = "none";
+      FetchaAllData();
+    }
+
+
+
+
+
+
+    if(user != null){
+
+        document.getElementById("user_para").innerHTML = "Welcome User : " + email_id;
+
+
+    }
+
+  } else {
+    // No user is signed in.
+
+    document.getElementById("user_div").style.display = "none";
+    document.getElementById("login_div").style.display = "block";
+    document.getElementById("master_user").style.display = "none";
+    document.getElementById("register_user").style.display = "none";
+
+  }
+});
+
+function login(){
+
+  var userEmail = document.getElementById("email_field").value;
+  var userPass = document.getElementById("password_field").value;
+
+  firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+
+    window.alert("Errorrrr : " + errorMessage);
+
+    // ...
+  });
+
+}
