@@ -157,19 +157,33 @@ img:hover{
   <br>
   <br>
   </div>
-<div id="user_send">
-<h1>kalhmera</h1>
-<h1>kalhmera</h1>
-<h1>kalhmera</h1>
-<h1>kalhmera</h1>
-<h1>kalhmera</h1>
-<h2></h2>
- <h3>Firebase Web login Example</h3>
-    <input type="email" placeholder="Email..." id="email_field" />
-    <input type="password" placeholder="Password..." id="password_field" />
+<div id="login_div">
+	<div id="long">
+	
+	
+	<h2></h2>
+	 <h3>Σύνδεση</h3>
+		<h2 id="hh2"></h2>
 
-    <button onclick="login()">Login to Account</button>
-	<button onclick="register()">register Account</button>
+	
+		
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+			<span class="input-group-text" id="basic-addon1">@</span>
+			</div>
+			<input type="text" class="form-control" id="email_field"  placeholder="Email..." aria-label="Username" aria-describedby="basic-addon1">
+			</div>
+			
+			<div class="input-group mb-3">
+			<div class="input-group-prepend">
+			<span class="input-group-text" id="basic-addon1">@</span>
+			</div>
+			<input type="text" class="form-control" id="password_field" placeholder="Password..." aria-label="Username" aria-describedby="basic-addon1">
+			</div>
+			
+			<button type="button" class="btn btn-secondary btn-lg btn-block" onclick="login()">Login to Account</button>
+			<button type="button" class="btn btn-secondary btn-lg btn-block" onclick="register()">Register Account</button>
+		</div>
 </div>
   <!-- Signup Section -->
 

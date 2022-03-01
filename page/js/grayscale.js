@@ -87,10 +87,11 @@ $("#mainNav").addClass("navbar-shrink");
 	  document.getElementById("swhowlabel1").innerHTML = label1;
   }
   
-  
+
   function kalthi(){
-	  document.getElementById("user_send").style.display = "block";
+	  document.getElementById("login_div").style.display = "block";
       document.getElementById("menou_juice").style.display = "none";
+	   document.getElementById("hh2").innerHTML=label1;
   }
   
   firebase.auth().onAuthStateChanged(function(user) {
