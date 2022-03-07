@@ -1,3 +1,23 @@
+firebase.auth().onAuthStateChanged(function(user) {
+	if (user) {
+		
+		document.getElementById("login_div").style.display = "none";
+		//document.getElementById("register_div").style.display = "none";
+		document.getElementById("menou_juice").style.display = "block";
+
+
+  } else {
+    // No user is signed in.
+
+    document.getElementById("login_div").style.display = "none";
+		//document.getElementById("register_div").style.display = "none";
+		document.getElementById("menou_juice").style.display = "block";
+		document.getElementById("apostolh_div").style.display = "none";
+
+  }
+});
+
+
 $('.carousel').carousel({
   interval: 2000
 })
@@ -55,105 +75,3 @@ $("#mainNav").addClass("navbar-shrink");
 })(jQuery); // End of use strict
 
 
-  var i = 0;
-  function aaaa(){
-
-    if(i==1){
-      document.getElementById("aa").src = "../img/ek1.png";
-      i=2;
-    }
-    else{
-      document.getElementById("aa").src = "../img/ek11.png";
-      i=1;
-    }
-
-
-  }
-  
-  var label1=0;
-  function add1() {
-	  if(label1<20){
-		  label1=label1+1
-	  }
-	  
-	  document.getElementById("swhowlabel1").innerHTML = label1;
-  }
-  
-  function pre1(){
-	  if(label1>0){
-		  label1=label1-1;
-	  }
-	  
-	  document.getElementById("swhowlabel1").innerHTML = label1;
-  }
-  
-
-  function kalthi(){
-	  document.getElementById("login_div").style.display = "block";
-      document.getElementById("menou_juice").style.display = "none";
-	   document.getElementById("hh2").innerHTML=label1;
-  }
-  
-  firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    // User is signed in.
-    var user = firebase.auth().currentUser;
-    var email_id = user.email;
-
-
-    if(email_id=="mariosskoufi@gmail.com"){
-      document.getElementById("user_div").style.display = "none";
-      document.getElementById("login_div").style.display = "none";
-      document.getElementById("master_user").style.display = "block";
-      document.getElementById("register_user").style.display = "none";
-      FetchaAllDataAllll();
-
-
-    }
-    else {
-      document.getElementById("user_div").style.display = "block";
-      document.getElementById("login_div").style.display = "none";
-      document.getElementById("master_user").style.display = "none";
-      document.getElementById("register_user").style.display = "none";
-      FetchaAllData();
-    }
-
-
-
-
-
-
-    if(user != null){
-
-        document.getElementById("user_para").innerHTML = "Welcome User : " + email_id;
-
-
-    }
-
-  } else {
-    // No user is signed in.
-
-    document.getElementById("user_div").style.display = "none";
-    document.getElementById("login_div").style.display = "block";
-    document.getElementById("master_user").style.display = "none";
-    document.getElementById("register_user").style.display = "none";
-
-  }
-});
-
-function login(){
-
-  var userEmail = document.getElementById("email_field").value;
-  var userPass = document.getElementById("password_field").value;
-
-  firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-
-    window.alert("Errorrrr : " + errorMessage);
-
-    // ...
-  });
-
-}

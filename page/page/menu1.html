@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>JUICE LAB</title>
+    <title>JUICE LAB</title>
   <link rel="shortcut icon" type="image/x-icon" href="../img/logo11.png">
 
   <!-- Bootstrap core CSS -->
@@ -32,8 +24,7 @@ img:hover{
 }}
 </style>
 </head>
-
-<body id="page-top">
+<body>
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
@@ -59,41 +50,33 @@ img:hover{
     </div>
   </nav>
 
+  <div id="login_div" class="main-div">
+    <h3>Firebase Web login Example</h3>
+    <input type="email" placeholder="Email..." id="email_field" />
+    <input type="password" placeholder="Password..." id="password_field" />
 
-<div id="login_div">
-	<div id="long" >
-	
-	
-	<h2></h2>
-	 <h3>Σύνδεση</h3>
-		<h2 id="hh2"></h2>
+    <button onclick="login()">Login to Account</button>
+  </div>
+  
+  
+  
+  
+  
 
-		<div class="input-group mb-3">
-			<div class="input-group-prepend">
-			<span class="input-group-text" id="basic-addon1">@</span>
-			</div>
-			<input type="text" class="form-control" id="email_field"  placeholder="Email..." aria-label="Username" aria-describedby="basic-addon1">
-			</div>
-			
-			<div class="input-group mb-3">
-			<div class="input-group-prepend">
-			<span class="input-group-text" id="basic-addon1">@</span>
-			</div>
-			<input type="text" class="form-control" id="password_field" placeholder="Password..." aria-label="Username" aria-describedby="basic-addon1">
-			</div>
-			
-			<button type="button" class="btn btn-secondary btn-lg btn-block" onclick="login()">Login to Account</button>
-			<button type="button" class="btn btn-secondary btn-lg btn-block" onclick="register()">Register Account</button>
-		</div>
-</div>
 
-<div id="menou_juice">
+  
+  
+  
+  
+  <div id="master_user">
+  
+    <div id="menou_juice">
   <nav class="navbar fixed-bottom navbar-light bg-warning"  id="nav2">
 
 
     <a class="navbar-brand js-scroll-trigger" href="#juice">juice</a>
     <a class="navbar-brand js-scroll-trigger" href="#smothies">smothies</a>
-	<a class="navbar-brand js-scroll-trigger" onclick="kalthi()" href="#">Προσθηκη</a>
+	<a class="navbar-brand js-scroll-trigger"  onclick="logout()" >Logout</a>
     <a class="navbar-brand js-scroll-trigger" href="#salads">salads</a>
     <a class="navbar-brand js-scroll-trigger" href="#sandwich">sandwich</a>
 
@@ -108,8 +91,9 @@ img:hover{
 <div class="container" align="center">
  
   <h2>juice</h2>
+  <button id="buttonn" onclick="logout()">Logout</button>
     <div class="row justify-content-sm-center justify-content-col-center justify-content-md-center">
-      <div class="col-6 col-sm-4 col-md-3 col-lg-3" data-aos="zoom-in-down" id="a"  ><img id="aa" onclick="aaaa()" src="../img/ek1.png" alt="" width="100%"><br> <button id="label1">2,20</button> <br> <button onclick="pre1()">-</button> <button id="swhowlabel1">0</button> <button onclick="add1()">+</button></div>
+      <div class="col-6 col-sm-4 col-md-3 col-lg-3" data-aos="zoom-in-down" id="a"  ><img id="aa" onclick="aaaa()" src="../img/ek1.png" alt="" width="100%"><br><button id="name01">Μήλο,μπανανα</button> <br/><button id="label1">2,20</button> <br> <button onclick="pre1()">-</button> <button id="swhowlabel1">0</button> <button onclick="add1()">+</button></br><button onclick="prosthikh1()">Προσθηκη</button></div>
       <div class="col-6 col-sm-4 col-md-3 col-lg-3" data-aos="zoom-in-down" id="b"><img src="../img/ek2.png" alt="" width="100%"><img class="img-fluid" src="" alt=""> <br>fhjhf </div>
       <div class="col-6 col-sm-4 col-md-3 col-lg-3" data-aos="zoom-in-down" id="c"><img src="../img/ek3.png" alt="" width="100%"><img class="img-fluid" src="" alt=""> <br> </div>
       <div class="col-6 col-sm-4 col-md-3 col-lg-3" data-aos="zoom-in-down" id="d"><img src="../img/ek4.png" alt="" width="100%"><img class="img-fluid" src="" alt=""> <br> </div>
@@ -175,67 +159,66 @@ img:hover{
 
     </div>
   </section>
+  
+  
+  <button onclick="kalathii()">kalathi</button>
   <br>
   <br>
   <br>
   </div>
-
-
-<div id="register_div">
-	<div id="reg">
-		<h3>Register User</h3>
+  
+  </div>
+  
+  
+  <div id="kalathi_Swho">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <table >
+		<td>Ονομα </td>
+		<td>Ποσοτητα</td>
+		<td>Ποσο</td>
+  
+	</table>
+	<table id="mytable">
 		
-		
-		<div class="input-group mb-3">
-			<div class="input-group-prepend">
-			<span class="input-group-text" id="basic-addon1">@</span>
-			</div>
-			<input type="text" class="form-control" id="email"  placeholder="EMAIL..." aria-label="Username" aria-describedby="basic-addon1">
-			</div>
-		
-		<div class="input-group mb-3">
-			<div class="input-group-prepend">
-			<span class="input-group-text" id="basic-addon1">@</span>
-			</div>
-			<input type="text" class="form-control" id="full_name"  placeholder="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" aria-label="Username" aria-describedby="basic-addon1">
-			</div>
-			
-			<div class="input-group mb-3">
-			<div class="input-group-prepend">
-			<span class="input-group-text" id="basic-addon1">@</span>
-			</div>
-			<input type="text" class="form-control" id="dieuthinsh"  placeholder="ΔΙΕΥΘΥΝΣΗ" aria-label="Username" aria-describedby="basic-addon1">
-			</div>
-			
-			<div class="input-group mb-3">
-			<div class="input-group-prepend">
-			<span class="input-group-text" id="basic-addon1">@</span>
-			</div>
-			<input type="text" class="form-control" id="tk"  placeholder="ΤΚ" aria-label="Username" aria-describedby="basic-addon1">
-			</div>
-			
-			<div class="input-group mb-3">
-			<div class="input-group-prepend">
-			<span class="input-group-text" id="basic-addon1">@</span>
-			</div>
-			<input type="password" class="form-control" id="password"  placeholder="PASSWORD" aria-label="Username" aria-describedby="basic-addon1">
-			</div>
-			
-		
-		<button type="button" class="btn btn-secondary btn-lg btn-block" onclick="createRegister()">register</button>
-		<button type="button" class="btn btn-secondary btn-lg btn-block" onclick="back()">back</button>
-	</div>
-</div>
-
-<div id="apostolh_div">
+  
+	</table>
 	
-</div>
-  <!-- Signup Section -->
+	<button onclick="sendorder()">Αποστολη Παραγγελίας</button>
+	
+
+  </div>
+  
+  
+  <div id="register_user"  class="main-div">
+    
+    <h3>register user</h3>
+    <input type="text" id="full_name" placeholder="ΟΝΟΜΑΤΕΠΩΝΥΜΟ">
+    
+    <input type="text" id="code_para" placeholder="ΚΩΔΙΚΟΣ ΠΑΡΑΓΩΓΟΥ">
+    
+    <input type="email" id="email" placeholder="Email">
+    
+    <input type="password" id="password" placeholder="New Password">
+    
+    
+    <button type="button" class="btn btn-danger" onclick="register()">register</button>
+    <br>
+    
+    <button class="btn btn-danger" onclick="back()">back</button>
+    
+  </div>
+  
 
 
-
-
-  <!-- Bootstrap core JavaScript -->
+  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+  
   <script src="../vendor/jquery/jquery.min.js"></script>
   <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -250,31 +233,49 @@ img:hover{
    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
   
+  
+  
+
+  
   <script>
-
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-var config = {
-  apiKey: "AIzaSyAmTemGM99GTQNt-7gCOByMspP5ZBIXieA",
-  authDomain: "juice-lab-bf1d2.firebaseapp.com",
-  databaseURL: "https://juice-lab-bf1d2-default-rtdb.firebaseio.com",
-  projectId: "juice-lab-bf1d2",
-  storageBucket: "juice-lab-bf1d2.appspot.com",
-  messagingSenderId: "860806031323",
-  appId: "1:860806031323:web:de73f4148a04756cdbe9fe",
-  measurementId: "G-Q950R9F1M0"
-};
-
-firebase.initializeApp(config);
+    // Initialize Firebase
+    var config = {
+       apiKey: "AIzaSyAmTemGM99GTQNt-7gCOByMspP5ZBIXieA",
+	  authDomain: "juice-lab-bf1d2.firebaseapp.com",
+	  databaseURL: "https://juice-lab-bf1d2-default-rtdb.firebaseio.com",
+	  projectId: "juice-lab-bf1d2",
+	  storageBucket: "juice-lab-bf1d2.appspot.com",
+	  messagingSenderId: "860806031323",
+	  appId: "1:860806031323:web:de73f4148a04756cdbe9fe",
+	  measurementId: "G-Q950R9F1M0"
+		};
+		firebase.initializeApp(config);
     
-const auth = firebase.auth()
+    const auth = firebase.auth()
 const database = firebase.database()
+	
 
-  
-  
-    
   </script>
-      
-  <script src="../js/grayscale.js"></script>
-</body>
+  <script src="menu.js"></script>
 
+</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
