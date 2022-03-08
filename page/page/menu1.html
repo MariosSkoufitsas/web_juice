@@ -56,20 +56,21 @@ img:hover{
     <input type="password" placeholder="Password..." id="password_field" />
 
     <button onclick="login()">Login to Account</button>
+      <button id="buttonn" onclick="registerUser()">register user</button>
   </div>
-  
-  
-  
-  
-  
 
 
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
   <div id="master_user">
-  
+
     <div id="menou_juice">
   <nav class="navbar fixed-bottom navbar-light bg-warning"  id="nav2">
 
@@ -89,7 +90,7 @@ img:hover{
 
 <section class="page-section" id="juice">
 <div class="container" align="center">
- 
+
   <h2>juice</h2>
   <button id="buttonn" onclick="logout()">Logout</button>
     <div class="row justify-content-sm-center justify-content-col-center justify-content-md-center">
@@ -108,7 +109,7 @@ img:hover{
       <div class="col-6 col-sm-4 col-md-3 col-lg-3" data-aos="zoom-in-down" id="b"><img src="../img/ek2.png" alt="" width="100%"><img class="img-fluid" src="" alt=""> <br> </div>
       <div class="col-6 col-sm-4 col-md-3 col-lg-3" data-aos="zoom-in-down" id="c"><img src="../img/ek3.png" alt="" width="100%"><img class="img-fluid" src="" alt=""> <br> </div>
       <div class="col-6 col-sm-4 col-md-3 col-lg-3" data-aos="zoom-in-down" id="d"><img src="../img/ek4.png" alt="" width="100%"><img class="img-fluid" src="" alt=""> <br> </div>
-	  
+
     </div>
     </div>
   </section>
@@ -159,17 +160,17 @@ img:hover{
 
     </div>
   </section>
-  
-  
+
+
   <button onclick="kalathii()">kalathi</button>
   <br>
   <br>
   <br>
   </div>
-  
+
   </div>
-  
-  
+
+
   <div id="kalathi_Swho">
   <br>
   <br>
@@ -183,42 +184,101 @@ img:hover{
 		<td>Ονομα </td>
 		<td>Ποσοτητα</td>
 		<td>Ποσο</td>
-  
+
 	</table>
 	<table id="mytable">
-		
-  
+
+
 	</table>
-	
+
 	<button onclick="sendorder()">Αποστολη Παραγγελίας</button>
-	
+
 
   </div>
-  
-  
-  <div id="register_user"  class="main-div">
-    
-    <h3>register user</h3>
-    <input type="text" id="full_name" placeholder="ΟΝΟΜΑΤΕΠΩΝΥΜΟ">
-    
-    <input type="text" id="code_para" placeholder="ΚΩΔΙΚΟΣ ΠΑΡΑΓΩΓΟΥ">
-    
-    <input type="email" id="email" placeholder="Email">
-    
-    <input type="password" id="password" placeholder="New Password">
-    
-    
-    <button type="button" class="btn btn-danger" onclick="register()">register</button>
+
+  <div id="wait_div">
     <br>
-    
-    <button class="btn btn-danger" onclick="back()">back</button>
-    
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1>wait</h1>
+
   </div>
-  
+
+
+  <div id="accept_div">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1>accept</h1>
+
+  </div>
+
+  <div id="discale_div">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1>discale</h1>
+
+  </div>
+
+  <div id="register_user"  class="main-div">
+
+    <div id="re">
+  		<h3>Register User</h3>
+
+
+  		<div class="input-group mb-3">
+  			<div class="input-group-prepend">
+  			<span class="input-group-text" id="basic-addon1">@</span>
+  			</div>
+  			<input type="text" class="form-control" id="email"  placeholder="EMAIL..." aria-label="Username" aria-describedby="basic-addon1">
+  			</div>
+
+  		<div class="input-group mb-3">
+  			<div class="input-group-prepend">
+  			<span class="input-group-text" id="basic-addon1">@</span>
+  			</div>
+  			<input type="text" class="form-control" id="full_name"  placeholder="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" aria-label="Username" aria-describedby="basic-addon1">
+  			</div>
+
+  			<div class="input-group mb-3">
+  			<div class="input-group-prepend">
+  			<span class="input-group-text" id="basic-addon1">@</span>
+  			</div>
+  			<input type="text" class="form-control" id="dieuthinsh"  placeholder="ΔΙΕΥΘΥΝΣΗ" aria-label="Username" aria-describedby="basic-addon1">
+  			</div>
+
+  			<div class="input-group mb-3">
+  			<div class="input-group-prepend">
+  			<span class="input-group-text" id="basic-addon1">@</span>
+  			</div>
+  			<input type="text" class="form-control" id="tk"  placeholder="ΤΚ" aria-label="Username" aria-describedby="basic-addon1">
+  			</div>
+
+  			<div class="input-group mb-3">
+  			<div class="input-group-prepend">
+  			<span class="input-group-text" id="basic-addon1">@</span>
+  			</div>
+  			<input type="password" class="form-control" id="password"  placeholder="PASSWORD" aria-label="Username" aria-describedby="basic-addon1">
+  			</div>
+
+
+  		<button type="button" class="btn btn-secondary btn-lg btn-block" onclick="register()">register</button>
+  		<button type="button" class="btn btn-secondary btn-lg btn-block" onclick="back()">back</button>
+  	</div>
+
+  </div>
+
 
 
   <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
-  
+
   <script src="../vendor/jquery/jquery.min.js"></script>
   <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -229,14 +289,14 @@ img:hover{
   <script>
 	AOS.init();
   </script>
-  
-   <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
-   <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
-  
-  
-  
 
-  
+   <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+
+
+
+
+
   <script>
     // Initialize Firebase
     var config = {
@@ -250,32 +310,13 @@ img:hover{
 	  measurementId: "G-Q950R9F1M0"
 		};
 		firebase.initializeApp(config);
-    
+
     const auth = firebase.auth()
 const database = firebase.database()
-	
+
 
   </script>
   <script src="menu.js"></script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

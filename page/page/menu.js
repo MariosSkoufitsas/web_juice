@@ -8,7 +8,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       document.getElementById("master_user").style.display = "block";
       document.getElementById("kalathi_Swho").style.display = "none";
 
-    
+
 
   } else {
     // No user is signed in.
@@ -16,6 +16,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     document.getElementById("login_div").style.display = "block";
     document.getElementById("master_user").style.display = "none";
 	document.getElementById("kalathi_Swho").style.display = "none";
+
 
   }
 });
@@ -93,39 +94,39 @@ $("#mainNav").addClass("navbar-shrink");
   const name=[];
   const posothta=[];
   const poso=[];
-  
+
   var label1=0;
-  
+
   function add1() {
 	  if(label1<20){
 		  label1=label1+1
 	  }
-	  
+
 	  document.getElementById("swhowlabel1").innerHTML = label1;
   }
-  
+
   function pre1(){
 	  if(label1>0){
 		  label1=label1-1;
 	  }
-	  
+
 	  document.getElementById("swhowlabel1").innerHTML = label1;
   }
 
 function prosthikh1(){
-	
-	name.push(label1);
+
+	name.push("Μηλο Μπανανα");
 	posothta.push(label1);
 	poso.push(label1*2.20);
 	console.log("eppppppppp"+name);
 }
 function kalathii(){
-	
+
 	document.getElementById("login_div").style.display = "none";
     document.getElementById("master_user").style.display = "none";
 	document.getElementById("kalathi_Swho").style.display = "block";
-	
-	
+
+
 	for(var t=0; t<name.length; t++){
 		var tbl=document.getElementById("mytable");
 	  var row = tbl.insertRow();
@@ -139,16 +140,16 @@ function kalathii(){
 	  cell1.innerHTML=name[t];
 	  cell2.innerHTML=posothta[t];
 	  cell3.innerHTML=poso[t];
-	  
-	  
+
+
 	  let btn = document.createElement("button");
 		btn.innerHTML = "delete";
 		cell4.appendChild(btn);
 		btn.onclick =function() {deleteRow(this)};
-		
-		
-		
-	 
+
+
+
+
 	}
 }
 
@@ -156,39 +157,122 @@ function deleteRow(r) {
   var i = r.parentNode.parentNode.rowIndex;
   document.getElementById("mytable").deleteRow(i);
 }
-
+let idddd;
 function sendorder(){
-	var n=0;
-	firebase.database().ref("count").on("value", function(snap) {
-	snap.forEach(function(Child) {
-	let id= Child.val();
-			
 
-	if(n==0){
-	id=id+1;
-	n=n+1
-	}
+  firebase.auth().onAuthStateChanged(function(user) {
+		let uid = user.uid;
 
-	email = "asdasd";
-	full_name = "asdasd";
-	code_para = "asda";
-	
-	var user_data = {
-      email : email,
-      full_name : full_name,
-      code_para : code_para,
 
-    }
-	
-	 var database_ref = database.ref()
-	  database_ref.child('send/'+id).set(user_data)
-	  database_ref.child('count/'+'id').set(id)
-	  
-	  
-	  
+      var n=0;
+      firebase.database().ref("count").on("value", function(snap) {
+      snap.forEach(function(Child) {
+      let id= Child.val();
+
+
+      if(n==0){
+      id=id+1;
+      idddd=id;
+      n=n+1
+      }
+
+
+
+
+
+
+      firebase.database().ref("users").child(uid).on("value", function(snap) {
+			snap.forEach(function(Child) {
+
+				let full_name= Child.val().full_name;
+        let dieuthinsh= Child.val().dieuthinsh;
+        let tk= Child.val().tk;
+
+      email = full_name;
+      full_name = dieuthinsh;
+      code_para = tk;
+      diadikasia = "null";
+
+      var user_data = {
+          email : email,
+          full_name : full_name,
+          code_para : code_para,
+          diadikasia : diadikasia
+
+        }
+
+       var database_ref = database.ref()
+        database_ref.child('send/'+id).set(user_data)
+        database_ref.child('send/'+id+'/diadikasias'+ '/diadikasi').set("null")
+        database_ref.child('count/'+'id').set(id)
+
+        for(var m=0; m<name.length; m++){
+
+            onomaa=name[m];
+            posothtaa=posothta[m];
+            posoa=poso[m];
+
+          var user_order={
+            onoma : onomaa,
+            posothta : posothtaa,
+            poso : posoa
+          }
+
+
+           database_ref.child('send/'+id+'/paraggelia/'+m).set(user_order);
+        }
+
+
+
+
+        document.getElementById("login_div").style.display = "none";
+        document.getElementById("master_user").style.display = "none";
+    	  document.getElementById("kalathi_Swho").style.display = "none";
+        document.getElementById("wait_div").style.display = "block";
+
+        setInterval(myTimer, 5000);
+
+
+            });
+          });
+        });
+      });
+    });
+
+}
+
+function myTimer() {
+  console.log();
+  firebase.database().ref("send").child(idddd).on("value", function(snap) {
+
+		snap.forEach(function(child) {
+
+      let flag = child.val().diadikasi;
+      if(flag=="yes"){
+        document.getElementById("login_div").style.display = "none";
+        document.getElementById("master_user").style.display = "none";
+    	  document.getElementById("kalathi_Swho").style.display = "none";
+        document.getElementById("wait_div").style.display = "none";
+        document.getElementById("discale_div").style.display = "none";
+        document.getElementById("accept_div").style.display = "block";
+
+      }
+      if(flag=="NO"){
+        document.getElementById("login_div").style.display = "none";
+        document.getElementById("master_user").style.display = "none";
+    	  document.getElementById("kalathi_Swho").style.display = "none";
+        document.getElementById("wait_div").style.display = "none";
+        document.getElementById("discale_div").style.display = "block";
+        document.getElementById("accept_div").style.display = "none";
+      }
+
+
+
+
 	  });
 	});
 }
+
 
 function login(){
 
@@ -208,14 +292,14 @@ function login(){
 }
 
 function logout(){
-  
+
   firebase.auth().signOut();
 }
 
 
 
 function registerUser(){
-  document.getElementById("user_div").style.display = "none";
+
   document.getElementById("login_div").style.display = "none";
   document.getElementById("master_user").style.display = "none";
   document.getElementById("register_user").style.display = "block";
@@ -228,46 +312,46 @@ function back(){
   document.getElementById("register_user").style.display = "none";
 }
 
-function register(){
-  // Get all our input fields
-  email = document.getElementById('email').value
-  password = document.getElementById('password').value
-  full_name = document.getElementById('full_name').value
-  code_para = document.getElementById('code_para').value
 
+  function register(){
 
+  	 // Get all our input fields
+    email = document.getElementById('email').value
+    password = document.getElementById('password').value
+    full_name = document.getElementById('full_name').value
+    dieuthinsh = document.getElementById('dieuthinsh').value
+    tk = document.getElementById('tk').value
+  	  // Move on with Auth
+  	  auth.createUserWithEmailAndPassword(email, password)
+  	  .then(function() {
+  		// Declare user variable
+  		var user = auth.currentUser
 
+  		// Add this user to Firebase Database
+  		var database_ref = database.ref()
 
-  // Move on with Auth
-  auth.createUserWithEmailAndPassword(email, password)
-  .then(function() {
-    // Declare user variable
-    var user = auth.currentUser
+  		// Create User data
+  		var user_data = {
+  		  email : email,
+  		  full_name : full_name,
+  		  dieuthinsh : dieuthinsh,
+  		  tk : tk,
+  		  last_login : Date.now()
+  		}
 
-    // Add this user to Firebase Database
-    var database_ref = database.ref()
+  		// Push to Firebase Database
+  		database_ref.child('users/' + user.uid+'/uidn').set(user_data)
 
-    // Create User data
-    var user_data = {
-      email : email,
-      full_name : full_name,
-      code_para : code_para,
-      last_login : Date.now()
-    }
+  		database_ref.child('Users/' ).set(user_data)
 
-    // Push to Firebase Database
-    database_ref.child('users/' + user.uid+'/uidn').set(user_data)
+  		// DOne
+  		alert('User Created!!')
+  	  })
+  	  .catch(function(error) {
+  		// Firebase will use this to alert of its errors
+  		var error_code = error.code
+  		var error_message = error.message
 
-    database_ref.child('Users/' + code_para).set(user_data)
-
-    // DOne
-    alert('User Created!!')
-  })
-  .catch(function(error) {
-    // Firebase will use this to alert of its errors
-    var error_code = error.code
-    var error_message = error.message
-
-    alert(error_message)
-  })
-}
+  		alert(error_message)
+  	  })
+  }
