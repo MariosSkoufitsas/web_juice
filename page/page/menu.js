@@ -156,6 +156,11 @@ function kalathii(){
 function deleteRow(r) {
   var i = r.parentNode.parentNode.rowIndex;
   document.getElementById("mytable").deleteRow(i);
+  name.splice(i, 1);;
+  posothta.splice(i, 1);;
+  poso.splice(i, 1);;
+
+  console.log(name+posothta+poso);
 }
 let idddd;
 function sendorder(){
@@ -228,6 +233,8 @@ function sendorder(){
         document.getElementById("login_div").style.display = "none";
         document.getElementById("master_user").style.display = "none";
     	  document.getElementById("kalathi_Swho").style.display = "none";
+        document.getElementById("accept_div").style.display = "none";
+        document.getElementById("discale_div").style.display = "none";
         document.getElementById("wait_div").style.display = "block";
 
         setInterval(myTimer, 5000);
